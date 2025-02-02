@@ -11,13 +11,17 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import DeleteIcon from "@mui/icons-material/Delete";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import CoffeeIcon from "@mui/icons-material/Coffee";
-
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import HomePage from "./pages/HomePage/HomePage";
 import Clothing from "./pages/Closing/Closing";
 import Settings from "./pages/Settings/Settings";
 import Drinks from "./pages/Drinks/Drinks";
 import cn from "classnames";
 import { theme } from "./themes/theme";
+import FortuneWheel from "./pages/FortuneWheel/FortuneWheel";
+import "./App.css";
+import PrizeResults from "./PrizeResults/PrizeResults";
+import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
 
 function App() {
   return (
@@ -30,7 +34,8 @@ function App() {
               <Route path="/complete" element={<Clothing />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/drinks" element={<Drinks />} />
-              <Route path="/fortune-wheel" element={<Drinks />} />
+              <Route path="/fortune-wheel" element={<FortuneWheel />} />
+              <Route path="/prize-results" element={<PrizeResults />} />
             </Routes>
           </Box>
 
@@ -87,9 +92,8 @@ function App() {
                     <Typography variant="body2">Закриття</Typography>
                   </IconButton>
                 </NavLink>
-
                 <NavLink
-                  to="/settings"
+                  to="/fortune-wheel"
                   className={({ isActive }) =>
                     cn("navigation__link", {
                       "navigation__link--active": isActive,
@@ -105,7 +109,7 @@ function App() {
                       alignItems: "center",
                     }}
                   >
-                    <SettingsIcon />
+                    <EmojiEventsIcon />
                     <Typography variant="body2">Колесо фортуни</Typography>
                   </IconButton>
                 </NavLink>
@@ -151,6 +155,27 @@ function App() {
                   >
                     <SettingsIcon />
                     <Typography variant="body2">Settings</Typography>
+                  </IconButton>
+                </NavLink>
+                <NavLink
+                  to="/prize-results"
+                  className={({ isActive }) =>
+                    cn("navigation__link", {
+                      "navigation__link--active": isActive,
+                    })
+                  }
+                  style={{ textAlign: "center", flex: 1 }}
+                >
+                  <IconButton
+                    color="inherit"
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                  >
+                    <PlaylistAddCheckIcon />
+                    <Typography variant="body2">Результати</Typography>
                   </IconButton>
                 </NavLink>
               </Box>
